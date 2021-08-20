@@ -26,7 +26,6 @@ public class IndexController {
 
     @GetMapping({"/","index"})
     public String index(Model mode){
-        mode.addAttribute("accountPath",accountPath);
         return "/index";
     }
 

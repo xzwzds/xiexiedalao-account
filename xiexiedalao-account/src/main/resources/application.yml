@@ -2,9 +2,14 @@ server:
   port: 8080
   servlet:
     context-path: /account
+copyright:
+  name: www.xieziwei.com
 spring:
   freemarker:
     enabled: true
     cache: true
     charset: UTF-8
     suffix: .ftl
+    config:
+      autoImports:
+        c: /common/common.ftl

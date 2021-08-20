@@ -19,7 +19,7 @@
         <#nested >
     <script>
     </script>
-    <script src="${accountPath!}/js/jquery/jquery.min.js" type="text/javascript"></script>
+    <script src="${base!}/js/jquery/jquery.min.js" type="text/javascript"></script>
     <#if jsList??>
         <#--遍历所有的js数据-->
         <#list jsList as jsPath>
