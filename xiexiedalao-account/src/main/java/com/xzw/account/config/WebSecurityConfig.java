@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -39,7 +41,27 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
        auth.userDetailsService(userInfoService);
     }
 
-//    基于授权管理器,配置用户详细信息 配置基于内存的用户权限信息
+    /**
+     * 实现自定义页面的方式
+     * @param http
+     * @throws Exception
+     */
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.formLogin()//表单提交
+        .loginPage("/login/html")//自定义登录页面
+        .usernameParameter("userName")
+        .passwordParameter("passWord")
+        .loginProcessingUrl("/user/login")
+                .successHandler(new LoginSuccessUrlPageHandel("/account/success"))
+                .failureHandler(new LoginErrorUrlPageHandel("/account/to_error"))
+         .and().authorizeRequests() //设置访问权限
+        .antMatchers("/user/login","/login/html","/to_error").permitAll() //当前路径下设置为可用进行访问
+        .anyRequest().authenticated()//需要进行认证
+        .and().csrf().disable();// 关闭csrf防护
+    }
+
+    //    基于授权管理器,配置用户详细信息 配置基于内存的用户权限信息
 //    @Override
 //    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 //        // 密码

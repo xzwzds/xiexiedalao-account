@@ -29,6 +29,11 @@ public class IndexController {
         return "/index";
     }
 
+    @GetMapping("/login/html")
+    public String login(){
+        return "/login/login";
+    }
+
 
 
 
