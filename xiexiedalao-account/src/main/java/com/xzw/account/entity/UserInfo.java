@@ -12,20 +12,23 @@ import java.util.Date;
  * @description
  */
 @Data
-@Table(name = "user")
+@Table(name = "tb_user")
 public class UserInfo {
 
     @Id
     @GeneratedValue(generator = "UUID")
     private String id;
 
-    @Column(name = "birth_day")
-    private Date birthDay;
+    private String username;
 
-    private String userName;
+    private String password;
 
-    private String passWord;
+    private String phone;
 
-    private String address;
+    private String email;
+
+    private Date created;
+
+    private Date updated;
 
 }

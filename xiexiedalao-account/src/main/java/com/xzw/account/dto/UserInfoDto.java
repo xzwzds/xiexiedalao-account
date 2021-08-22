@@ -11,6 +11,7 @@ import java.util.Date;
  */
 @Data
 public class UserInfoDto {
+
     private String id;
 
     private Date birthDay;

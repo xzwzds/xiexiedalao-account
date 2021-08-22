@@ -16,9 +16,14 @@ spring:
   datasource:
     username: root
     password: xieziwei@123
-    url: jdbc:mysql://nj-cynosdbmysql-grp-ro114o6t.sql.tencentcdb.com:20607/user_db?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://nj-cynosdbmysql-grp-ro114o6t.sql.tencentcdb.com:20607/BRAC?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=UTC
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.zaxxer.hikari.HikariDataSource
+  security:
+    user:
+      name: xieziwei # 账号
+      password: root # 密码
+      roles: ADMIN # 角色
 mybatis:
   type-aliases-package: com.xzw.account.entity
-  mapper-locations: classpath:/mapper/*mapper.xml
+  mapper-locations: classpath:/mapper/*Mapper.xml

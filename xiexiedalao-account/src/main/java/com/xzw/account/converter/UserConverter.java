@@ -16,24 +16,24 @@ import java.util.List;
  */
 @Mapper(componentModel = "spring")
 public interface UserConverter {
-
-    /**
-     * 实体类信息转换
-     * @param userInfo 用户信息
-     * @return
-     */
-    @Mappings({
-           @Mapping(source = "address",target = "local"),
-           @Mapping(source = "birthDay",target = "birthDay",dateFormat = "yyyy-MM-dd HH:mm:ss"),
-           @Mapping(target = "passWord",ignore = true)
-    })
-    UserInfoDto converterUserInfo(UserInfo userInfo);
-
-    /**
-     * 实体类转换 集合类型
-     * @param userInfoList 用户信息集合
-     * @return
-     */
-    List<UserInfoDto> converterUserInfoList(List<UserInfo> userInfoList);
+//
+//    /**
+//     * 实体类信息转换
+//     * @param userInfo 用户信息
+//     * @return
+//     */
+//    @Mappings({
+//           @Mapping(source = "address",target = "local"),
+//           @Mapping(source = "birthDay",target = "birthDay",dateFormat = "yyyy-MM-dd HH:mm:ss"),
+//           @Mapping(target = "passWord",ignore = true)
+//    })
+//    UserInfoDto converterUserInfo(UserInfo userInfo);
+//
+//    /**
+//     * 实体类转换 集合类型
+//     * @param userInfoList 用户信息集合
+//     * @return
+//     */
+//    List<UserInfoDto> converterUserInfoList(List<UserInfo> userInfoList);
 
 }
