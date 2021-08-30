@@ -2,6 +2,9 @@ server:
   port: 8080
   servlet:
     context-path: /account
+    session:
+      timeout: 600s
+      #  配置Session过期时间
 copyright:
   name: www.xieziwei.com
 spring:
@@ -16,9 +19,15 @@ spring:
   datasource:
     username: root
     password: xieziwei@123
-    url: jdbc:mysql://nj-cynosdbmysql-grp-ro114o6t.sql.tencentcdb.com:20607/BRAC?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://nj-cynosdbmysql-grp-ro114o6t.sql.tencentcdb.com:20607/brac?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=UTC
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.zaxxer.hikari.HikariDataSource
+  session:
+    store-type: none
+  redis:
+    host: 121.5.120.220
+    port: 16379
+
 mybatis:
   type-aliases-package: com.xzw.account.entity
   mapper-locations: classpath:/mapper/*Mapper.xml

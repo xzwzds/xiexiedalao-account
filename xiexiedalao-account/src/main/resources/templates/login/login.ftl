@@ -36,6 +36,7 @@
             </label>
             <input type="password" name="passWord" id="passWord">
             <br>
+            <input type="checkbox" name="remember-me" value="true"/>
             <input type="submit" value="登录">
             <input type="reset" value="重置">
         </form>
